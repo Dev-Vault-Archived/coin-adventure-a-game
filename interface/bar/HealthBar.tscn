@@ -11,9 +11,9 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Counter" type="NinePatchRect" parent="."]
-margin_right = 160.0
+margin_right = 180.0
 margin_bottom = 53.0
-rect_min_size = Vector2( 160, 0 )
+rect_min_size = Vector2( 180, 0 )
 texture = ExtResource( 1 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -34,18 +34,18 @@ stretch_mode = 1
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 64.0
-margin_top = -15.1634
-margin_right = 150.0
-margin_bottom = 19.8366
+margin_top = -15.5
+margin_right = 171.0
+margin_bottom = 19.5
 theme = ExtResource( 3 )
-text = "0/100"
+text = "100/100"
 align = 2
 valign = 1
 clip_text = true
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
-margin_left = 164.0
-margin_right = 560.0
+margin_left = 184.0
+margin_right = 580.0
 margin_bottom = 53.0
 value = 60.0
 texture_under = ExtResource( 4 )
