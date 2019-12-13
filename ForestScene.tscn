@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ForestScene.gd" type="Script" id=1]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://player/Player.tres" type="Theme" id=5]
+[ext_resource path="res://interface/theme/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 6 )
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -13,12 +20,44 @@ editor/display_folded = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 510, 300 )
+z_index = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="Interface" parent="CanvasLayer" instance=ExtResource( 4 )]
+editor/display_folded = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 136.0
+margin_top = 400.0
+margin_right = 1147.0
+margin_bottom = 587.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Selamat datang di game Petualangan Koin
+Tujuan anda adalah mencari koin dan tekan C untuk mengambil
+koin tersebut
+
+Tekan Enter untuk memulai!"
+align = 1
+valign = 1
+
+[node name="Coin" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
+position = Vector2( 1640, 1010 )
+[connection signal="death" from="." to="Player" method="_on_Node_death"]
+[connection signal="death" from="." to="CanvasLayer/Interface" method="_on_Node_death"]
+[connection signal="death" from="." to="Coin" method="_on_Node_death"]
+[connection signal="reset" from="." to="CanvasLayer/Interface" method="_on_Node_reset"]
+[connection signal="reset" from="." to="Coin" method="_on_Node_reset"]
 [connection signal="time_changed" from="." to="CanvasLayer/Interface" method="_on_Node_time_changed"]
+[connection signal="coin_catched" from="Player" to="." method="_on_Player_coin_catched"]
+[connection signal="coin_catched" from="Player" to="CanvasLayer/Interface" method="_on_Player_coin_catched"]
+[connection signal="coin_catched" from="Player" to="Coin" method="_on_Player_coin_catched"]
+[connection signal="darah_berkurang" from="Player" to="." method="_on_Player_darah_berkurang"]
 [connection signal="darah_berkurang" from="Player" to="CanvasLayer/Interface" method="_on_Player_darah_berkurang"]
+[connection signal="coin_nempel_ke_player" from="Coin" to="Player" method="_on_Coin_coin_nempel_ke_player"]
+[connection signal="coin_tidak_nempel_ke_player" from="Coin" to="Player" method="_on_Coin_coin_tidak_nempel_ke_player"]
 
 [editable path="CanvasLayer/Interface"]

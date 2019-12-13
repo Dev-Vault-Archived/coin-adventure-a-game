@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://interface/bar/HealthBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/bar/HealthBar.gd" type="Script" id=3]
 [ext_resource path="res://interface/counter/Timer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://interface/counter/Timer.gd" type="Script" id=5]
-[ext_resource path="res://interface/counter/Counter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://interface/counter/Counter.tscn" type="PackedScene" id=5]
 
 [node name="Interface" type="Control"]
 anchor_right = 1.0
@@ -34,11 +33,14 @@ margin_bottom = 54.0
 margin_left = 0.0
 margin_right = 110.0
 margin_bottom = 54.0
-script = ExtResource( 5 )
 
-[node name="Counter" parent="HBoxContainer" instance=ExtResource( 6 )]
+[node name="Counter" parent="HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 114.0
 margin_right = 249.0
 margin_bottom = 54.0
+[connection signal="coin_catched_interface_on" from="." to="HBoxContainer/Counter" method="_on_Interface_coin_catched_interface_on"]
 [connection signal="darah_berkurang_interface_on" from="." to="VBoxContainer/HealthBar" method="_on_Interface_darah_berkurang_interface_on"]
+[connection signal="death_interface_on" from="." to="HBoxContainer/Counter" method="_on_Interface_death_interface_on"]
+[connection signal="death_interface_on" from="." to="VBoxContainer/HealthBar" method="_on_Interface_death_interface_on"]
+[connection signal="reset_interface_on" from="." to="HBoxContainer/Counter" method="_on_Interface_reset_interface_on"]
 [connection signal="time_changed_interface_on" from="." to="HBoxContainer/Timer" method="_on_Interface_time_changed_interface_on"]

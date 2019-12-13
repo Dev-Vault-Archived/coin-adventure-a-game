@@ -2,8 +2,7 @@
 extends "state.gd"
 
 func handle_input(event):
-	if event.is_action_pressed("simulate_damage"):
-		emit_signal("finished", "triggered")
+	pass
 
 func get_input_direction():
 	var input_direction = Vector2()

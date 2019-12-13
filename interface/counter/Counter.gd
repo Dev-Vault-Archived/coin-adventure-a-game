@@ -6,19 +6,20 @@ extends NinePatchRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Label.text = str(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 
-func _on_Interface_time_changed_interface_on(value):
-	var minutes = floor(value/60)
-	var seconds = value%60
-	
-	$Label.text = str(minutes, ":", seconds)
+func _on_Interface_coin_catched_interface_on():
+	$Label.text = str(int($Label.text) + 1)
 
 
 func _on_Interface_death_interface_on():
-	pass # Replace with function body.
+	pass
+
+
+func _on_Interface_reset_interface_on():
+	$Label.text = str(0)
