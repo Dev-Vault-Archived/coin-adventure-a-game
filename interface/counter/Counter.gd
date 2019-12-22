@@ -17,9 +17,5 @@ func _on_Interface_coin_catched_interface_on():
 	$Label.text = str(int($Label.text) + 1)
 
 
-func _on_Interface_death_interface_on():
-	pass
-
-
 func _on_Interface_reset_interface_on():
-	$Label.text = str(0)
+	pass

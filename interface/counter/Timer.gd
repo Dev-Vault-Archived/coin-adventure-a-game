@@ -17,6 +17,9 @@ func _on_Interface_time_changed_interface_on(value):
 	var minutes = floor(value/60)
 	var seconds = value%60
 	
+	if str(seconds).length() < 2:
+		seconds =  str(0, seconds)
+	
 	$Label.text = str(minutes, ":", seconds)
 
 

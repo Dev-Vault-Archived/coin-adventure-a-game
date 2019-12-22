@@ -22,6 +22,10 @@ func _on_Interface_darah_berkurang_interface_on(value):
 
 
 func _on_Interface_death_interface_on():
+	pass
+
+
+func _on_Interface_reset_interface_on():
 	$TextureProgress.max_value = max_health
 	$TextureProgress.value = max_health
 	$Counter/Label.text = str(max_health, "/", max_health)

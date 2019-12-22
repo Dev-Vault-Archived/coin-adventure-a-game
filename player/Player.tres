@@ -3,7 +3,8 @@
 [ext_resource path="res://interface/theme/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
-size = 6
+size = 8
+use_filter = true
 font_data = ExtResource( 1 )
 
 [resource]

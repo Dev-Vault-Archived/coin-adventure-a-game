@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/player_finite_state_machine.gd" type="Script" id=2]
@@ -11,9 +11,23 @@
 [ext_resource path="res://player/body.png" type="Texture" id=9]
 [ext_resource path="res://interface/counter/label_bg.png" type="Texture" id=10]
 [ext_resource path="res://player/Player.tres" type="Theme" id=11]
+[ext_resource path="res://music/jump.wav" type="AudioStream" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodyPivot/Body:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1.86607, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.952941, 0.686275, 0.0588235, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "triggered"
@@ -33,6 +47,19 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodyPivot/Body:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 8
@@ -40,7 +67,6 @@ collision_mask = 6
 script = ExtResource( 1 )
 
 [node name="StateMachine" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 2 )
 START_STATE = NodePath("Death")
 
@@ -70,8 +96,10 @@ scale = Vector2( 0.330109, 0.330109 )
 texture = ExtResource( 8 )
 
 [node name="BodyPivot" type="Position2D" parent="."]
+editor/display_folded = true
 
 [node name="Body" type="Sprite" parent="BodyPivot"]
+modulate = Color( 0.984314, 0.895425, 0.686275, 1 )
 position = Vector2( 0.119255, -19.5553 )
 scale = Vector2( 0.346078, 0.346078 )
 texture = ExtResource( 9 )
@@ -93,9 +121,10 @@ smoothing_enabled = true
 smoothing_speed = 10.0
 
 [node name="Notifier" type="NinePatchRect" parent="."]
+editor/display_folded = true
 margin_left = 17.0
-margin_top = -41.0
-margin_right = 103.0
+margin_top = -52.0
+margin_right = 125.0
 margin_bottom = 7.0
 texture = ExtResource( 10 )
 patch_margin_left = 8
@@ -104,14 +133,17 @@ patch_margin_right = 8
 patch_margin_bottom = 8
 
 [node name="CatchCoin" type="Label" parent="Notifier"]
-margin_left = 8.0
-margin_top = 5.0
-margin_right = 80.0
-margin_bottom = 46.0
+margin_left = 9.0
+margin_top = 5.3276
+margin_right = 102.0
+margin_bottom = 54.3276
 theme = ExtResource( 11 )
 text = "Anda menemukannya!
 Tekan tombol C
 untuk mengambil
 koin!"
 clip_text = true
+
+[node name="AudioJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]

@@ -31,7 +31,10 @@ func enter():
 
 	horizontal_velocity = enter_velocity if input_direction else Vector2()
 	vertical_speed = 600.0
-
+	
+	# Play sound
+	owner.get_node("AudioJump").play()
+	
 	owner.get_node("AnimationPlayer").play("idle")
 
 func update(delta):

@@ -2,9 +2,9 @@ extends Control
 
 signal darah_berkurang_interface_on(value)
 signal time_changed_interface_on(value)
-signal coin_catched_interface_on
-signal death_interface_on
-signal reset_interface_on
+signal coin_catched_interface_on()
+signal death_interface_on()
+signal reset_interface_on()
 
 # Declare member variables here. Examples:
 # var a = 2

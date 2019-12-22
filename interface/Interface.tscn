@@ -41,6 +41,6 @@ margin_bottom = 54.0
 [connection signal="coin_catched_interface_on" from="." to="HBoxContainer/Counter" method="_on_Interface_coin_catched_interface_on"]
 [connection signal="darah_berkurang_interface_on" from="." to="VBoxContainer/HealthBar" method="_on_Interface_darah_berkurang_interface_on"]
 [connection signal="death_interface_on" from="." to="HBoxContainer/Counter" method="_on_Interface_death_interface_on"]
-[connection signal="death_interface_on" from="." to="VBoxContainer/HealthBar" method="_on_Interface_death_interface_on"]
 [connection signal="reset_interface_on" from="." to="HBoxContainer/Counter" method="_on_Interface_reset_interface_on"]
+[connection signal="reset_interface_on" from="." to="VBoxContainer/HealthBar" method="_on_Interface_reset_interface_on"]
 [connection signal="time_changed_interface_on" from="." to="HBoxContainer/Timer" method="_on_Interface_time_changed_interface_on"]
