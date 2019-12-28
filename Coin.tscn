@@ -84,7 +84,6 @@ scale = Vector2( 0.338546, 0.338546 )
 texture = ExtResource( 3 )
 
 [node name="CollisionCoin" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 0.385603 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

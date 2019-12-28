@@ -8,7 +8,6 @@
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-size = 18
 font_data = ExtResource( 5 )
 
 [sub_resource type="Theme" id=2]
@@ -25,7 +24,6 @@ position = Vector2( 510, 300 )
 z_index = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="Interface" parent="CanvasLayer" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -43,9 +41,11 @@ margin_right = 1147.0
 margin_bottom = 587.0
 theme = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Selamat datang di game Petualangan Koin
-Tujuan anda adalah mencari koin dan tekan C untuk mengambil
+text = "Selamat datang di game \"Find My Coin\"
+Tujuan anda adalah mengumpulkan koin sebanyak-banyaknya dan tekan C untuk mengambil
 koin tersebut
+
+Anda diberi waktu 1 menit untuk mencari satu buah koin
 
 Tekan Enter untuk memulai!"
 align = 1

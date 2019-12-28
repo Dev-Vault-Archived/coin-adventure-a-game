@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Petualangan Koin"
+config/name="Find My Coin"
 run/main_scene="res://ForestScene.tscn"
 config/icon="res://icon.png"
 

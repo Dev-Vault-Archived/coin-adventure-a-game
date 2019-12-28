@@ -96,7 +96,6 @@ scale = Vector2( 0.330109, 0.330109 )
 texture = ExtResource( 8 )
 
 [node name="BodyPivot" type="Position2D" parent="."]
-editor/display_folded = true
 
 [node name="Body" type="Sprite" parent="BodyPivot"]
 modulate = Color( 0.984314, 0.895425, 0.686275, 1 )
@@ -112,7 +111,7 @@ polygon = PoolVector2Array( 459.298, 319.972, 459.298, 334.091, 494.288, 334.091
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -2.19165, 0.956146 )
 current = true
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 0.8, 0.8 )
 limit_left = -640
 limit_top = -640
 limit_right = 2432
